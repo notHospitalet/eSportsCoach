@@ -36,11 +36,11 @@ public class ContentService {
     /*
         metodo para obtener los ultimos contenidos publicados con un limite especificado
         - crea un objeto pageable con orden descendente por campo publishedAt
-        - retorna la lista de contenidos publicados (el pageable no se usa en la consulta original)
+        - retorna la lista de contenidos publicados limitada por el pageable
     */
     public List<Content> getLatestContent(int limit) {
         Pageable pageable = PageRequest.of(0, limit, Sort.by("publishedAt").descending());
-        return contentRepository.findByIsPublishedTrueOrderByPublishedAtDesc();
+        return contentRepository.findByIsPublishedTrue(pageable);
     }
 
     /*

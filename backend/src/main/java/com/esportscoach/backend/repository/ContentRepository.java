@@ -1,6 +1,7 @@
 package com.esportscoach.backend.repository;
 
 import com.esportscoach.backend.model.Content;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -16,6 +17,11 @@ public interface ContentRepository extends MongoRepository<Content, String> {
         metodo para obtener todos los contenidos publicados, ordenados por fecha de publicacion descendente
     */
     List<Content> findByIsPublishedTrueOrderByPublishedAtDesc();
+
+    /*
+        metodo para obtener contenidos publicados con paginacion y ordenamiento
+    */
+    List<Content> findByIsPublishedTrue(Pageable pageable);
 
     /*
         metodo para obtener contenidos filtrados por su tipo (ARTICLE, VIDEO, GUIDE, ANALYSIS)

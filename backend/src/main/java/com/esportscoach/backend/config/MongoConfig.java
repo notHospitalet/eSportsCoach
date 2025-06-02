@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.lang.NonNull;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
@@ -35,6 +36,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
         metodo que retorna el nombre de la base de datos usada por mongodb
     */
     @Override
+    @NonNull
     protected String getDatabaseName() {
         return databaseName;
     }
@@ -45,6 +47,7 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
     */
     @Bean
     @Override
+    @NonNull
     public MongoClient mongoClient() {
         try {
             /*
