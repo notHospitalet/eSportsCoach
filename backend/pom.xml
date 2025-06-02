@@ -1,0 +1,128 @@
+<!--
+    archivo pom.xml que define configuracion de maven para el proyecto backend de eSports Coach
+    incluye metadata del proyecto, propiedades de compilacion, dependencias necesarias y plugins de build
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <!-- version del modelo maven -->
+    <modelVersion>4.0.0</modelVersion>
+    
+    <!--
+        configuracion del parent que hereda de spring-boot-starter-parent version 2.7.0
+        esto provee defaults de propiedades, versiones de plugins y dependencias administradas
+    -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.0</version>
+        <relativePath/>
+    </parent>
+    
+    <!-- 
+        metadata del proyecto:
+        groupId y artifactId identifican el artefacto en el repositorio
+        version define la version actual del proyecto
+    -->
+    <groupId>com.esportscoach</groupId>
+    <artifactId>backend</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>backend</name>
+    <description>eSports Coach Backend</description>
+    
+    <!--
+        propiedades generales del proyecto:
+        java.version indica la version de java utilizada para compilar (17)
+    -->
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+    
+    <!--
+        seccion de dependencias:
+        incluye todos los artefactos necesarios para compilar y ejecutar la aplicacion
+    -->
+    <dependencies>
+        <!-- starter para crear aplicaciones web con spring mvc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
+        <!-- starter para usar spring data con mongodb -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        
+        <!-- starter para seguridad con spring security -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        
+        <!-- starter para validaciones con javax validation -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        
+        <!-- starter para enviar correos con spring mail -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+        </dependency>
+        
+        <!-- dependencia para trabajar con json web tokens (API) -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.11.5</version>
+        </dependency>
+        
+        <!-- implementacion runtime de jjwt (necesaria para firmar/verificar tokens) -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+        
+        <!-- adicion de jackson para parseo de claims en jjwt -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.11.5</version>
+            <scope>runtime</scope>
+        </dependency>
+        
+        <!-- starter para pruebas unitarias e integracion con spring boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- dependencia para pruebas de spring security -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!--
+        seccion de configuracion de build:
+        incluye plugins que se ejecutan en distintos ciclos de compilacion
+    -->
+    <build>
+        <plugins>
+            <!-- plugin de spring boot que empaqueta la aplicacion como jar ejecutable
+                y gestiona el ciclo de vida de build propio de spring boot -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
