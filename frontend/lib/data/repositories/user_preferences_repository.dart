@@ -2,13 +2,14 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../models/user_preferences_model.dart';
 import '../../core/utils/storage_util.dart';
+import '../../config/constants.dart'; // Importar constantes
 
 /// repositorio que gestiona las operaciones relacionadas con las preferencias de usuario:
 /// - obtener preferencias actuales
 /// - actualizar preferencias
 class UserPreferencesRepository {
   /// URL base de la API (ajustar según entorno)
-  final String baseUrl = 'http://localhost:8080/api';
+  final String baseUrl = AppConstants.apiUrl; // Usar la constante centralizada
   /// utilidad para acceder a token y usuario almacenados localmente
   final StorageUtil _storageUtil = StorageUtil();
 
