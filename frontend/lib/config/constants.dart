@@ -2,7 +2,7 @@ class AppConstants {
   // configuracion de la api: url base para llamadas HTTP
   static const String apiUrl = String.fromEnvironment(
     'API_BASE_URL', // Nombre de la variable de entorno en Vercel
-    defaultValue: 'http://localhost:8080/api', // Valor por defecto para desarrollo local
+    defaultValue: 'http://localhost:8080', // Valor por defecto para desarrollo local (sin /api)
   );
   
   // informacion de la aplicacion: nombre y version

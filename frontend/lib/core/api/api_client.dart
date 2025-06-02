@@ -63,14 +63,14 @@ class ApiClient {
     String endpoint, {
     Map<String, dynamic>? data,
   }) async {
-    // asegurarse de que apiUrl no termine con '/' para evitar '//'
+    // asegurarse de que apiUrl no termine con '/' para evitar dobles barras
     final baseUrl = AppConstants.apiUrl.endsWith('/')
         ? AppConstants.apiUrl.substring(0, AppConstants.apiUrl.length - 1)
         : AppConstants.apiUrl;
     // eliminar '/' inicial del endpoint si lo tiene
     final cleanedEndpoint = endpoint.startsWith('/') ? endpoint.substring(1) : endpoint;
 
-    final url = Uri.parse('$baseUrl/$cleanedEndpoint');
+    final url = Uri.parse('$baseUrl/api/$cleanedEndpoint');
     final headers = await _getHeaders();
 
     http.Response response;
