@@ -21,7 +21,7 @@ eSportsCoach/
 ### Backend (Spring Boot)
 - Java JDK 17 o superior
 - Maven
-- IDE (recomendado: IntelliJ IDEA o Spring Tool Suite)
+- Visual Studio Code
 
 ## Configuración del Frontend
 
@@ -64,13 +64,3 @@ cd backend
 - Arquitectura moderna y escalable
 - Soporte para autenticación y autorización
 - Integración con bases de datos
-
-## Contribución
-
-1. Fork el proyecto
-2. Crear una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abrir un Pull Request 
-
-// cambio para un nuevo commit 
